@@ -1,7 +1,7 @@
 package com.costume.controller;
 
 import com.costume.model.Cabin;
-import com.costume.service.CostumeService;
+import com.costume.service.CabinService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,33 +24,33 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 public class CabinController {
     @Autowired
-    private CostumeService costumeService;
+    private CabinService cabinService;
     
     @GetMapping("/all")
     public List<Cabin> getAll(){
-        return costumeService.getAll();
+        return cabinService.getAll();
     }
     
     @GetMapping("/{id}")
     public Optional<Cabin> getCostume(@PathVariable int id){
-        return costumeService.getCostume(id);
+        return cabinService.getCostume(id);
     }
     
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Cabin save(@RequestBody Cabin costume){
-        return costumeService.save(costume);
+        return cabinService.save(costume);
     }
     
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean deleteCostume(@PathVariable int id){
-        return costumeService.deleteCostume(id);
+        return cabinService.deleteCostume(id);
     }
     
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Cabin updateCostume(@RequestBody Cabin costume){
-        return costumeService.update(costume);
+        return cabinService.update(costume);
     }
 }

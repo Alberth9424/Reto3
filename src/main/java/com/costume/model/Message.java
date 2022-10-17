@@ -28,7 +28,7 @@ public class Message implements Serializable{
     private String messageText;
     
     @ManyToOne
-    @JoinColumn(name="costumeId")
+    @JoinColumn(name="cabinId")
     @JsonIgnoreProperties({"messages","reservations"})
     private Cabin cabin;
 

@@ -57,23 +57,23 @@ public class Cabin implements Serializable{
     
     @ManyToOne
     @JoinColumn(name="categoryId")
-    @JsonIgnoreProperties("costumes")
+    @JsonIgnoreProperties("cabins")
     
     /**
      * Categoria del disfraz
      */
     private Category category;
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy= "costume")
-    @JsonIgnoreProperties({"costume","client"})
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy= "cabin")
+    @JsonIgnoreProperties({"cabin","client"})
     
     /**
      * Listado de mensajes relacionados con el disfraz
      */
     private List<Message> messages;
     
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "costume")
-    @JsonIgnoreProperties({"costume","messages"})
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "cabin")
+    @JsonIgnoreProperties({"cabin","messages"})
     
     /**
      * Listado de reservas relacionados con el disfraz

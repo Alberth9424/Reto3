@@ -1,31 +1,31 @@
 package com.costume.service;
 
 import com.costume.model.Cabin;
-import com.costume.repository.CostumeRepository;
+import com.costume.repository.CabinRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CostumeService {
+public class CabinService {
 
     @Autowired
-    private CostumeRepository costumeRepository;
+    private CabinRepository costumeRepository;
 
     public List<Cabin> getAll() {
         return costumeRepository.getAll();
     }
 
     public Optional<Cabin> getCostume(int id) {
-        return costumeRepository.getCostume(id);
+        return costumeRepository.getCabin(id);
     }
 
     public Cabin save(Cabin costume) {
         if (costume.getId() == null) {
             return costumeRepository.save(costume);
         } else {
-            Optional<Cabin> unDisfraz = costumeRepository.getCostume(costume.getId());
+            Optional<Cabin> unDisfraz = costumeRepository.getCabin(costume.getId());
 
             if (unDisfraz.isEmpty()) {
                 return costumeRepository.save(costume);
@@ -36,7 +36,7 @@ public class CostumeService {
     }
 
     public boolean deleteCostume(int id) {
-        Optional<Cabin> unDisfaz = costumeRepository.getCostume(id);
+        Optional<Cabin> unDisfaz = costumeRepository.getCabin(id);
 
         if (unDisfaz.isEmpty()) {
             return false;
@@ -55,7 +55,7 @@ public class CostumeService {
      */
     public Cabin update(Cabin costume) {
         if (costume.getId() != null) {
-            Optional<Cabin> e = costumeRepository.getCostume(costume.getId());
+            Optional<Cabin> e = costumeRepository.getCabin(costume.getId());
             if (!e.isEmpty()) {
                 if (costume.getName() != null) {
                     e.get().setName(costume.getName());

@@ -5,26 +5,26 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import com.costume.repository.crud.CostumeCrudRepository;
+import com.costume.repository.crud.CabinCrudRepository;
 
 @Repository
-public class CostumeRepository {
+public class CabinRepository {
     @Autowired
-    private CostumeCrudRepository costumeCrudRepository;
+    private CabinCrudRepository cabinCrudRepository;
     
     public List<Cabin> getAll(){
-        return (List<Cabin>) costumeCrudRepository.findAll();
+        return (List<Cabin>) cabinCrudRepository.findAll();
     }
     
-    public Optional<Cabin> getCostume(int id){
-        return costumeCrudRepository.findById(id);
+    public Optional<Cabin> getCabin(int id){
+        return cabinCrudRepository.findById(id);
     }
     
     public Cabin save(Cabin costume){
-        return costumeCrudRepository.save(costume);
+        return cabinCrudRepository.save(costume);
     }
     
      public void delete(Cabin costume) {
-        costumeCrudRepository.delete(costume);
+        cabinCrudRepository.delete(costume);
     } 
 }
