@@ -47,7 +47,7 @@ public class Cabin implements Serializable{
      * Año del disfraz
      */
     /*private Integer year;*/
-    private Integer room;
+    private Integer rooms;
     @Column(nullable=false,length = 250)
     
     /**

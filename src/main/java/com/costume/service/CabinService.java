@@ -63,8 +63,8 @@ public class CabinService {
                 if (costume.getBrand() != null) {
                     e.get().setBrand(costume.getBrand());
                 }
-                if (costume.getRoom()!= null) {
-                    e.get().setRoom(costume.getRoom());
+                if (costume.getRooms()!= null) {
+                    e.get().setRooms(costume.getRooms());
                 }
                 if (costume.getDescription() != null) {
                     e.get().setDescription(costume.getDescription());
