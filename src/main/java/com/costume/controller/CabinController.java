@@ -1,6 +1,6 @@
 package com.costume.controller;
 
-import com.costume.model.Costume;
+import com.costume.model.Cabin;
 import com.costume.service.CostumeService;
 import java.util.List;
 import java.util.Optional;
@@ -21,25 +21,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/api/Costume")
+@RequestMapping("/api/Cabin")
 @CrossOrigin("*")
-public class CostumeController {
+public class CabinController {
     @Autowired
     private CostumeService costumeService;
     
     @GetMapping("/all")
-    public List<Costume> getAll(){
+    public List<Cabin> getAll(){
         return costumeService.getAll();
     }
     
     @GetMapping("/{id}")
-    public Optional<Costume> getCostume(@PathVariable int id){
+    public Optional<Cabin> getCostume(@PathVariable int id){
         return costumeService.getCostume(id);
     }
     
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Costume save(@RequestBody Costume costume){
+    public Cabin save(@RequestBody Cabin costume){
         return costumeService.save(costume);
     }
     
@@ -51,7 +51,7 @@ public class CostumeController {
     
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Costume updateCostume(@RequestBody Costume costume){
+    public Cabin updateCostume(@RequestBody Cabin costume){
         return costumeService.update(costume);
     }
 }

@@ -19,11 +19,11 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "costume")
+@Table(name = "cabin")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Costume implements Serializable{
+public class Cabin implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     /**
@@ -46,7 +46,8 @@ public class Costume implements Serializable{
     /**
      * Año del disfraz
      */
-    private Integer year;
+    /*private Integer year;*/
+    private Integer room;
     @Column(nullable=false,length = 250)
     
     /**

@@ -1,6 +1,6 @@
 package com.costume.repository;
 
-import com.costume.model.Costume;
+import com.costume.model.Cabin;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,19 +12,19 @@ public class CostumeRepository {
     @Autowired
     private CostumeCrudRepository costumeCrudRepository;
     
-    public List<Costume> getAll(){
-        return (List<Costume>) costumeCrudRepository.findAll();
+    public List<Cabin> getAll(){
+        return (List<Cabin>) costumeCrudRepository.findAll();
     }
     
-    public Optional<Costume> getCostume(int id){
+    public Optional<Cabin> getCostume(int id){
         return costumeCrudRepository.findById(id);
     }
     
-    public Costume save(Costume costume){
+    public Cabin save(Cabin costume){
         return costumeCrudRepository.save(costume);
     }
     
-     public void delete(Costume costume) {
+     public void delete(Cabin costume) {
         costumeCrudRepository.delete(costume);
     } 
 }

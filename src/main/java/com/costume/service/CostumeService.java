@@ -1,6 +1,6 @@
 package com.costume.service;
 
-import com.costume.model.Costume;
+import com.costume.model.Cabin;
 import com.costume.repository.CostumeRepository;
 import java.util.List;
 import java.util.Optional;
@@ -13,19 +13,19 @@ public class CostumeService {
     @Autowired
     private CostumeRepository costumeRepository;
 
-    public List<Costume> getAll() {
+    public List<Cabin> getAll() {
         return costumeRepository.getAll();
     }
 
-    public Optional<Costume> getCostume(int id) {
+    public Optional<Cabin> getCostume(int id) {
         return costumeRepository.getCostume(id);
     }
 
-    public Costume save(Costume costume) {
+    public Cabin save(Cabin costume) {
         if (costume.getId() == null) {
             return costumeRepository.save(costume);
         } else {
-            Optional<Costume> unDisfraz = costumeRepository.getCostume(costume.getId());
+            Optional<Cabin> unDisfraz = costumeRepository.getCostume(costume.getId());
 
             if (unDisfraz.isEmpty()) {
                 return costumeRepository.save(costume);
@@ -36,7 +36,7 @@ public class CostumeService {
     }
 
     public boolean deleteCostume(int id) {
-        Optional<Costume> unDisfaz = costumeRepository.getCostume(id);
+        Optional<Cabin> unDisfaz = costumeRepository.getCostume(id);
 
         if (unDisfaz.isEmpty()) {
             return false;
@@ -53,9 +53,9 @@ public class CostumeService {
         "description":"superman costume",
         "year":2021}
      */
-    public Costume update(Costume costume) {
+    public Cabin update(Cabin costume) {
         if (costume.getId() != null) {
-            Optional<Costume> e = costumeRepository.getCostume(costume.getId());
+            Optional<Cabin> e = costumeRepository.getCostume(costume.getId());
             if (!e.isEmpty()) {
                 if (costume.getName() != null) {
                     e.get().setName(costume.getName());
@@ -63,8 +63,8 @@ public class CostumeService {
                 if (costume.getBrand() != null) {
                     e.get().setBrand(costume.getBrand());
                 }
-                if (costume.getYear() != null) {
-                    e.get().setYear(costume.getYear());
+                if (costume.getRoom()!= null) {
+                    e.get().setRoom(costume.getRoom());
                 }
                 if (costume.getDescription() != null) {
                     e.get().setDescription(costume.getDescription());
